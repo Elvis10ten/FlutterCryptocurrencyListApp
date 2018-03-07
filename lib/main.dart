@@ -33,6 +33,11 @@ class CryptoListWidget extends StatelessWidget {
     return new Scaffold(
       body: _buildBody(),
       backgroundColor: Colors.blue,
+      floatingActionButton: new FloatingActionButton(onPressed: () {
+        // Do something when FAB is pressed
+      },
+        child: new Icon(Icons.add_alert),
+      ),
     );
   }
 
