@@ -96,7 +96,8 @@ class CryptoListWidget extends StatelessWidget {
   }
 
   RichText _getSubtitleText(String priceUsd, String percentChange1h) {
-    TextSpan priceTextWidget = new TextSpan(text: "\$$priceUsd");
+    TextSpan priceTextWidget = new TextSpan(text: "\$$priceUsd\n", style:
+    new TextStyle(color: Colors.black),);
     String percentChangeText = "1 hour: $percentChange1h%";
     TextSpan percentChangeTextWidget;
 
