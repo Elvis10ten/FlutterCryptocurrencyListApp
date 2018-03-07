@@ -95,8 +95,28 @@ class CryptoListWidget extends StatelessWidget {
     );
   }
 
-  Text _getSubtitleText(String priceUsd, String percentChange1h) {
-    return new Text('\$$priceUsd\n1 hour: $percentChange1h%');
+  RichText _getSubtitleText(String priceUsd, String percentChange1h) {
+    TextSpan priceTextWidget = new TextSpan(text: "\$$priceUsd");
+    String percentChangeText = "1 hour: $percentChange1h%";
+    TextSpan percentChangeTextWidget;
+
+    if(double.parse(percentChange1h) > 0) {
+      // Currency price increased. Color percent change text green
+      percentChangeTextWidget = new TextSpan(text: percentChangeText,
+      style: new TextStyle(color: Colors.green),);
+    }
+    else {
+      // Currency price decreased. Color percent change text red
+      percentChangeTextWidget = new TextSpan(text: percentChangeText,
+          style: new TextStyle(color: Colors.red),);
+    }
+
+    return new RichText(text: new TextSpan(
+      children: [
+        priceTextWidget,
+        percentChangeTextWidget
+      ]
+    ),);
   }
 
   ListTile _getListTile(Map currency, MaterialColor color) {
